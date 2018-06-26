@@ -1,0 +1,7 @@
+Na classe aplications.properties, atualizar os dados para colocar
+o nome do seu banco de Dados.
+O banco que usei foi o postgres com o pgadmin 4.
+
+Dependências extras no pom.xml
+thymeleaf-extras
+spring-security

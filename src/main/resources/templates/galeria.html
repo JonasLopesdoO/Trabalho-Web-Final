@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/css/estilo.css" />
+	<title>FITFOOD - galeria</title>
+	
+<style>
+.menubar{
+}	
+.btn-atualizar {
+	margin-left: 50px;
+	-moz-box-shadow: inset 0px 1px 0px 0px #97c4fe;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #97c4fe;
+	box-shadow: inset 0px 1px 0px 0px #97c4fe;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6
+		), color-stop(1, #1e62d0));
+	background: -moz-linear-gradient(center top, #3d94f6 5%, #1e62d0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6',
+		endColorstr='#1e62d0');
+	background-color: #3d94f6;
+	-webkit-border-top-left-radius: 37px;
+	-moz-border-radius-topleft: 37px;
+	border-top-left-radius: 37px;
+	-webkit-border-top-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 37px;
+	-moz-border-radius-bottomright: 37px;
+	border-bottom-right-radius: 37px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-bottom-left-radius: 0px;
+	text-indent: 3.93px;
+	border: 1px solid #337fed;
+	display: inline-block;
+	color: #ffffff;
+	font-family: Verdana;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: italic;
+	height: 25px;
+	line-height: 25px;
+	width: 90px;
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 1px 1px 0px #1570cd;
+}
+
+.btn-atualizar:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0
+		), color-stop(1, #3d94f6));
+	background: -moz-linear-gradient(center top, #1e62d0 5%, #3d94f6 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0',
+		endColorstr='#3d94f6');
+	background-color: #1e62d0;
+}
+
+.btn-atualizar:active {
+	position: relative;
+	top: 1px;
+}
+
+.btn-excluir {
+	-moz-box-shadow: inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #f29c93;
+	box-shadow: inset 0px 1px 0px 0px #f29c93;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00
+		), color-stop(1, #ce0100));
+	background: -moz-linear-gradient(center top, #fe1a00 5%, #ce0100 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00',
+		endColorstr='#ce0100');
+	background-color: #fe1a00;
+	-webkit-border-top-left-radius: 37px;
+	-moz-border-radius-topleft: 37px;
+	border-top-left-radius: 37px;
+	-webkit-border-top-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 37px;
+	-moz-border-radius-bottomright: 37px;
+	border-bottom-right-radius: 37px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-bottom-left-radius: 0px;
+	text-indent: 3.93px;
+	border: 1px solid #d83526;
+	display: inline-block;
+	color: #ffffff;
+	font-family: Verdana;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: italic;
+	height: 25px;
+	line-height: 25px;
+	width: 90px;
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 1px 1px 0px #b23e35;
+}
+
+.btn-excluir:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ce0100
+		), color-stop(1, #fe1a00));
+	background: -moz-linear-gradient(center top, #ce0100 5%, #fe1a00 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100',
+		endColorstr='#fe1a00');
+	background-color: #ce0100;
+}
+
+.btn-excluir:active {
+	position: relative;
+	top: 1px;
+}
+
+.btn-comprar {
+	-moz-box-shadow:inset 0px 1px 0px -2px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px -2px #caefab;
+	box-shadow:inset 0px 1px 0px -2px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
+	background:-moz-linear-gradient( center top, #77d42a 5%, #5cb811 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811');
+	background-color:#77d42a;
+	-webkit-border-top-left-radius:13px;
+	-moz-border-radius-topleft:13px;
+	border-top-left-radius:13px;
+	-webkit-border-top-right-radius:13px;
+	-moz-border-radius-topright:13px;
+	border-top-right-radius:13px;
+	-webkit-border-bottom-right-radius:13px;
+	-moz-border-radius-bottomright:13px;
+	border-bottom-right-radius:13px;
+	-webkit-border-bottom-left-radius:13px;
+	-moz-border-radius-bottomleft:13px;
+	border-bottom-left-radius:13px;
+	text-indent:0;
+	display:inline-block;
+	color:#306108;
+	font-family:Impact;
+	font-size:18px;
+	font-weight:normal;
+	font-style:normal;
+	height:30px;
+	line-height:30px;
+	width:88px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 0px 2px #aade7c;
+}
+.btn-comprar:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a) );
+	background:-moz-linear-gradient( center top, #5cb811 5%, #77d42a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a');
+	background-color:#5cb811;
+}.btn-comprar:active {
+	position:relative;
+	top:1px;
+}
+</style>
+</head>
+<body>
+
+	<header>
+		<div class="menu">
+
+			<div class="navbar">
+				<a id="marca">FitFood </a>
+				<div class="menubar">
+					<a href="/gerencia" sec:authorize="hasRole('ROLE_ADMIN')">Gerência</a>
+					<a href="/"> Home</a>
+					<a href="/sobre">Sobre</a>
+					<a href="/galeria" class="active">Galeria</a> 
+					<a href="/contato">Contato</a>
+					<a href = "/carrinho" sec:authorize="hasRole('ROLE_USER')"><img src="img/carrinho.png" width="40px" id="carrinho"></a>
+					<a href="/historico" sec:authorize="hasRole('ROLE_USER')">Histórico</a>
+					<a href="/pessoa/logar" sec:authorize="!isAuthenticated()">Login</a>
+					<a href="/logout" sec:authorize="isAuthenticated()">Logout</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="cabecalho">
+			<img src="img/logo.jpg" alt="FitFood" id="logo"> <img
+				src="img/capa2.jpg" alt="FitFood" id="capa">
+		</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+
+	</header>
+
+	<section class="container">
+		<br> <br> <br>
+		<div sec:authorize="hasRole('ROLE_ADMIN')" class="containerContato">
+			<form  method="POST" action="/produto/salvar"
+				enctype="multipart/form-data" th:object="${produto}">
+				<div class="row">
+					<div class="col-25">
+						<label for="produto">Digite o nome do produto</label>
+					</div>
+					<div class="col-75">
+						<input type="text" id="nome" name="nome" placeholder="Nome...">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-25">
+						<label for="produto">Digite o preco do produto</label>
+					</div>
+					<div class="col-75">
+						<input type="number" id="preco" step="0.01" name="preco"
+							placeholder="50,00">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-25">
+						<label for="produto">Selecione a imagem do produto</label>
+					</div>
+					<div class="col-75">
+						<input type="file" name="imagem">
+					</div>
+				</div>
+
+				<div class="row">
+					<input type="submit" value="ADICIONAR">
+				</div>
+			</form>
+		</div>
+
+		<br>
+		<h2 align="center">Galeria de Produtos</h2>
+		<br> <br>
+		
+		<div style="border:outset; border-width:thin;border-color:#2FA529;padding-right:30px;padding-left:30px;margin-left:20px;margin-top:30px;"
+			class="produtos" th:each="produto :${todosProdutos}">
+			<br>
+			<a class="btn-atualizar" sec:authorize="hasRole('ROLE_ADMIN')" 
+			th:href="@{/produto/atualizar/{id}(id = ${produto.id})}">Atualizar</a>
+			
+			<a class="btn-excluir" sec:authorize="hasRole('ROLE_ADMIN')"
+			 th:href="@{/produto/excluir/{id}(id = ${produto.id})}"> Excluir</a>
+			
+			<img th:src="@{'/img/'+${produto.nome}+.png}">
+			<p align="center" th:text="${produto.nome}"></p>
+			<p align="center" style="color: #006400" th:text="${produto.preco}"></p>
+			<form sec:authorize="!isAuthenticated()" th:action="@{/pessoa/formulario}">
+				<button type="submit" name="action" class="btn-comprar">Comprar</button>
+			</form>
+			<form sec:authorize="hasRole('ROLE_USER')" th:action="@{/pessoa/adicionarAoCarrinho/{id}(id = ${produto.id})}">
+				<button type="submit" name="action" class="btn-comprar">Comprar</button>
+			</form>
+			
+		</div>
+		<!--produtos -->
+
+	</section>
+
+	<footer>
+	<br>
+		<div class="rodape">
+			<br>
+			<p>Telefone: (88) 3462-0532 ou (88) 3410-5592</p>
+			<p>Desenvolvido por: Jonas Lopes</p>
+			<p>Data de fundação: 08 de maio de 2018</p>
+		</div>
+	</footer>
+
+
+</body>
+</html>

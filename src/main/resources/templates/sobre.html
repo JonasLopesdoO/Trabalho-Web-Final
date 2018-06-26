@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/estilo.css">
+	<title>FITFOOD</title>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$( function() {
+	    	$( "#accordion" ).accordion();
+	  	});
+	  	</script>
+<style>
+	.menubar{
+	}	
+</style>
+</head>
+<body>
+
+	<header>
+		<div class= "menu">
+
+			<div class="navbar">
+				<a id ="marca">FitFood </a>
+				<div class ="menubar">
+					<a href="/gerencia" sec:authorize="hasRole('ROLE_ADMIN')">Gerência</a>
+					<a href = "/"> Home</a>
+					<a href = "/sobre" class="active">Sobre</a>
+					<a href = "/galeria">Galeria</a>
+					<a href = "/contato">Contato</a>
+					<a href = "/carrinho" sec:authorize="hasRole('ROLE_USER')"><img src="img/carrinho.png" width="40px" id="carrinho"></a>
+					<a href="/historico" sec:authorize="hasRole('ROLE_USER')">Histórico</a>
+					<a href="/pessoa/logar" sec:authorize="!isAuthenticated()">Login</a>
+					<a href="/logout" sec:authorize="isAuthenticated()">Logout</a>
+				</div>
+				</div>
+			</div>
+			
+			<div class= "cabecalho">
+				<img src="img/logo.jpg"	alt="FitFood" id="logo">
+				<img src="img/capa2.jpg" alt="FitFood" id="capa">
+			</div>	
+		</div>
+	</header>
+
+	<section class="container" id="sectionSobre">
+		<br>
+		<br>
+		<br>
+		<div id="accordion">
+		  <h2>>História</h2>
+		  <div class="topico">
+		    <br>
+		    <p>   A FitFood surgiu a 30 anos atrás com a proposta de levar aos Brasileiros uma alimentação rica em nutrientes, e uma alimentação mais saudável. Através de um modelo de marketing em expansão mundial, O marketing Multinível, levamos nossos produtos às famílias brasileiras. Nossa missão é aumentar sua qualidade de vida e alimentação.
+		    </p>
+		  </div>
+		  <h2>>Mercado</h2>
+		  <div class="topico">
+		    <br>
+		    <p>Fazemos parte de um mercado em crescimento expansivo, com o mercado de consumo inteligente através da distribuição dos produtos pelas franquias espalhadas por todo o Brasil. Esse setor de Bem-estar cada vez mais vem aumentando seus lucros no Brasil, com influência dos disseminadores de informação de massa, como por exemplo, Televisão, Rádio e a própria internet.
+		    </p>
+		  </div >
+		  <h2>>Nutrição</h2>
+		  <div class="topico">
+		    <br>
+		    <p>Nosso cargo chefe são as barras de proteínas concentradas. Com elas você tem a eficiência de um whey proteín, com o consumo rápido de uma barra de proteínas. Todas as barras possuem 20 gramas de proteínas, o que equivale a uma medida de whey proteín conhecidos no mercado. Nossa linha fitnes foi construída com o que há e de melhpr e mais tecnológico no ramo do Bem Estar. Propiciando ao cliente o que ele merece, Qualidade!
+		    </p>
+		    <ul>
+		      <li>Barras de cereal/li>
+		      <li>Barras de proteínas</li>
+		      <li>Shakes</li>
+		      <li>Chás</li>
+		      <li>Esfoliantes</li>
+		      <li>Redutor de medidas</li>
+		    </ul>
+		  </div>
+		</div>
+		<div class="topico" id="accordion">
+		  	<img src = "img/capa.png" id="capaSobre" alt="capaSobre">
+		</div>
+
+	</section>
+	
+	<footer>
+		<div class = "rodape">
+			<br>
+			<p>Telefone: (88) 3462-0532 ou (88) 3410-5592</p>
+			<p>Desenvolvido por: Jonas Lopes</p>
+			<p>Data de fundação: 08 de maio de 2018</p>
+		</div>
+	</footer>
+
+</body>
+</html>

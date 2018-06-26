@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>FITFOOD - Histórico</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+<style>	
+body {
+	color: #333333;
+	background: #E8E8E8;
+	font-family: "Lucida	Sans Unicode", "Lucida Grande", sans-serif;
+}
+#produto {
+	width: 70px;
+	height: 70px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #F1F4F2;
+    color: black;
+}
+
+.active {
+    background-color: #7FFF00;
+}
+#logo, #capa{
+	width:650px;
+	height:400px;
+}
+#logo{
+	margin-left:10px;
+}
+#capa{
+	margin-left:2px;
+}
+#logomarcas{
+	background-color:#66CD00;
+}
+.menu{
+	margin-left:750px;
+}
+</style>
+</head>
+<body>
+	
+	<ul>
+  	<li><a class="menu" href="/"> Home</a></li>
+	<li><a href="/sobre">Sobre</a></li>
+	<li><a href="/galeria">Galeria</a> </li>
+	<li><a href="/contato">Contato</a></li>
+	<li><a href ="/carrinho" sec:authorize="hasRole('ROLE_USER')"><img src="img/carrinho.png" width="40px" id="carrinho"></a></li>
+	<li><a href="/historico" sec:authorize="hasRole('ROLE_USER')" class="active" >Histórico</a></li>
+	<li><a href="/pessoa/logar" sec:authorize="!isAuthenticated()">Login</a></li>
+	<li><a href="/logout" sec:authorize="isAuthenticated()">Logout</a></li>
+</ul>
+
+        <div class="row col-lg-12" id="logomarcas">
+            <div class = "">
+            	<img class = "col-lg-6" src="img/logo.jpg" alt="FitFood" id="logo"> 
+           
+            	<img class="col-lg-6" src="img/capa2.jpg" alt="FitFood" id="capa">
+            </div>
+            <!-- col-sm-12 -->
+        </div> 
+        <!-- row -->
+    <!-- container -->
+    
+
+		<div class="cabecalho">
+
+		</div>
+		<script src="js/jquery.min.js"></script>
+
+	<div class="container">
+	<br><br>	
+	<h3> Histórico de Compras </h3>
+	<br>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Preço</th>
+					<th scope="col">Imagem</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="produto : ${historico}">
+					<td th:text="${produto.nome}"></td>
+					<td th:text="${produto.preco}" style="color: #006400"></td>
+					<td><img id="produto" th:src="@{'/img/'+${produto.nome}+.png}"></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+	<script src="/js/bootstrap.min.js">
+		
+	</script>
+
+</body>
+</html>
